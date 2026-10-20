@@ -390,11 +390,16 @@ svg {
 .legend-suit {
   width: 1.1em;
   height: 1.1em;
-  color: var(--ivory);
+  color: var(--suit-black);
+  /* A light edge keeps black suits visible on the dark felt */
+  stroke: var(--ivory-soft);
+  stroke-width: 6;
+  paint-order: stroke;
 }
 
 .legend-suit--red {
   color: #e5525c;
+  stroke: none;
 }
 
 .deck:has(.fan-slot:nth-child(1) .card:is(:hover, :focus-visible)) .legend-item:nth-child(1),
@@ -1840,6 +1845,7 @@ svg {
 .tip-suit {
   width: 1.1em;
   height: 1.1em;
+  color: var(--suit-black);
 }
 
 .tip-suit--red {
