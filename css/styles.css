@@ -9,7 +9,8 @@
    7. Inner pages: intro, badges, status
    8. Game lobby
    9. Rules
-   10. Motion
+   10. Deck table
+   11. Motion
    ========================================================== */
 
 /* ---------- 1. Design tokens ---------- */
@@ -19,6 +20,9 @@
   --felt-deep: #0a2a1f;
   --felt-raised: #164a37;
   --felt-hover: #1d5a44;
+  --felt-table: #1b6046;
+  --rail: #4a2c1a;
+  --card-back: #8c1c2b;
   --ivory: #f4efe4;
   --ivory-soft: #c9d3c8;
   --gold: #d9ad55;
@@ -1053,7 +1057,155 @@ svg {
   }
 }
 
-/* ---------- 10. Motion ---------- */
+/* ---------- 10. Deck table ---------- */
+.table-area {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 var(--gutter) var(--section-gap);
+}
+
+/* The table itself: a felt surface inside a wooden rail */
+.felt {
+  --card-w: 52px;
+  --card-h: calc(var(--card-w) * 1.4);
+  display: grid;
+  gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  padding: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+  border: clamp(8px, 1.5vw, 14px) solid var(--rail);
+  border-radius: clamp(32px, 8vw, 140px);
+  background: var(--felt-table);
+}
+
+.seats-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-around;
+  gap: 1.25rem;
+}
+
+.seat-panel {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.2rem;
+  min-width: 96px;
+  text-align: center;
+}
+
+.seat-panel--folded {
+  opacity: 0.5;
+}
+
+.seat-cards {
+  --card-w: 38px;
+  --card-h: calc(var(--card-w) * 1.4);
+  display: flex;
+  margin-bottom: 0.4rem;
+}
+
+.seat-cards > * + * {
+  margin-left: calc(var(--card-w) * -0.5);
+  rotate: 8deg;
+}
+
+.seat-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.seat-chips,
+.seat-note {
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.seat-note {
+  color: var(--ivory);
+  font-weight: 600;
+}
+
+/* Shared cards in the middle of the table */
+.board {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.board-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem clamp(1rem, 3vw, 2.5rem);
+}
+
+.community {
+  display: flex;
+  gap: 6px;
+}
+
+.community .card {
+  box-shadow: none;
+}
+
+.card-slot {
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: calc(var(--card-w) * 0.07);
+  background: rgb(0 0 0 / 0.2);
+}
+
+.pot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+}
+
+/* Your seat */
+.you {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+}
+
+.hole {
+  --card-w: 76px;
+  --card-h: calc(var(--card-w) * 1.4);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* Face-down card, used for opponents, the deck and the card states guide */
+.card-back {
+  display: grid;
+  place-items: center;
+  width: var(--card-w);
+  height: var(--card-h);
+  border: calc(var(--card-w) * 0.06) solid var(--card-face);
+  border-radius: calc(var(--card-w) * 0.07);
+  background: var(--card-back);
+  color: rgb(244 239 228 / 0.55);
+}
+
+.card-back svg {
+  width: calc(var(--card-w) * 0.38);
+  height: calc(var(--card-w) * 0.38);
+}
+
+@media (min-width: 640px) {
+  .felt {
+    --card-w: 66px;
+  }
+
+  .hole {
+    --card-w: 92px;
+  }
+}
+
+/* ---------- 11. Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .hero-title,
   .hero-lead,

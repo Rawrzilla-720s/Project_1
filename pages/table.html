@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deck Table · Poker Lounge</title>
+  <meta name="description" content="Take your seat at a Texas Hold'em table in the Poker Lounge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Suit shapes, drawn once and reused with <use> -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="suit-spade" viewBox="0 0 100 100">
+      <path d="M50 4C30 26 6 40 6 60c0 14 11 22 23 22 9 0 16-4 19-10-1 10-6 18-14 24h32c-8-6-13-14-14-24 3 6 10 10 19 10 12 0 23-8 23-22C94 40 70 26 50 4z"/>
+    </symbol>
+    <symbol id="suit-heart" viewBox="0 0 100 100">
+      <path d="M50 92C22 70 6 54 6 34 6 19 17 8 30 8c9 0 16 5 20 13 4-8 11-13 20-13 13 0 24 11 24 26 0 20-16 36-44 58z"/>
+    </symbol>
+    <symbol id="suit-diamond" viewBox="0 0 100 100">
+      <path d="M50 3Q68 30 84 50 68 70 50 97 32 70 16 50 32 30 50 3z"/>
+    </symbol>
+    <symbol id="suit-club" viewBox="0 0 100 100">
+      <path d="M30 26a20 20 0 1 0 40 0a20 20 0 1 0-40 0zM7 57a20 20 0 1 0 40 0a20 20 0 1 0-40 0zM53 57a20 20 0 1 0 40 0a20 20 0 1 0-40 0zM36 50a14 14 0 1 0 28 0a14 14 0 1 0-28 0zM47 58c-1 16-5 29-13 38h32c-8-9-12-22-13-38z"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">Poker Lounge</a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="lobby.html">Lobby</a></li>
+        <li><a href="table.html" aria-current="page">Table</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="table-page">
+    <section class="page-intro" aria-labelledby="page-title">
+      <h1 id="page-title" class="page-title">Table Four</h1>
+      <p class="page-lead">Texas Hold'em with blinds of 20 and 40. The flop is down and the action is on you.</p>
+    </section>
+
+    <section class="table-area" aria-label="Poker table">
+        <div class="felt">
+          <div class="seats-row">
+            <div class="seat-panel">
+              <div class="seat-cards" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
+              <p class="seat-name">Mara</p>
+              <p class="seat-chips">1,100 chips</p>
+              <p class="seat-note">Bet 80</p>
+            </div>
+            <div class="seat-panel seat-panel--folded">
+              <p class="seat-name">Dev</p>
+              <p class="seat-chips">640 chips</p>
+              <p class="seat-note">Folded</p>
+            </div>
+            <div class="seat-panel">
+              <div class="seat-cards" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
+              <p class="seat-name">Kofi</p>
+              <p class="seat-chips">1,930 chips</p>
+              <p class="seat-note">Called 80</p>
+            </div>
+          </div>
+          <div class="board">
+            <div class="board-row">
+              <div class="community" role="img" aria-label="Flop: queen of hearts, jack of hearts, four of clubs. Turn and river not dealt yet.">
+                <span class="card card--red"><span class="card-index">Q<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">J<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">J<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card"><span class="card-index">4<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">4<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card-slot"></span>
+                <span class="card-slot"></span>
+              </div>
+            </div>
+            <p class="pot"><span class="chips" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span>Pot 520</p>
+          </div>
+          <div class="you">
+            <div class="hole">
+                <span class="card card--red"><span class="card-index">A<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">K<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-heart"/></svg></span></span>
+            </div>
+            <p class="seat-name">You</p>
+            <p class="seat-chips">1,460 chips</p>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>A card gaming hub built with HTML and CSS.</p>
+    <ul class="footer-links">
+      <li>
+        <a href="https://github.com/Rawrzilla-720s/Project_1" target="_blank" rel="noopener">
+          <svg class="footer-icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/suryaprakash-m7" target="_blank" rel="noopener" aria-label="Suryaprakash on LinkedIn">
+          <svg class="footer-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>Suryaprakash
+        </a>
+      </li>
+      <li>
+        <!-- TODO: add Victor's LinkedIn URL -->
+        <a href="#" target="_blank" rel="noopener" aria-label="Victor on LinkedIn">
+          <svg class="footer-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>Victor
+        </a>
+      </li>
+    </ul>
+  </footer>
+</body>
+</html>
