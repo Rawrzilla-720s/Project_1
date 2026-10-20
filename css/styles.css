@@ -1863,6 +1863,110 @@ svg {
   }
 }
 
+/* Count your outs */
+.outs-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.outs-hand,
+.outs-list {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  border-radius: 18px;
+  background: var(--felt-table);
+}
+
+.outs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+}
+
+.outs-group {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.outs-label {
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.outs-cards {
+  --card-w: 64px;
+  --card-h: calc(var(--card-w) * 1.4);
+  display: flex;
+  gap: 8px;
+}
+
+.outs-cards .card {
+  box-shadow: none;
+}
+
+.hand-cards--wrap {
+  flex-wrap: wrap;
+  gap: 10px 8px;
+}
+
+.hand-cards--wrap .card--playable {
+  outline-width: 2px;
+}
+
+.odds {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+}
+
+.odds-item {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--felt-raised);
+}
+
+.odds-item dt {
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.odds-item dd {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.odds-number {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
+  line-height: 1;
+}
+
+@media (min-width: 560px) {
+  .odds {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .outs-layout {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .odds {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* ---------- 12. Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .hero-title,
