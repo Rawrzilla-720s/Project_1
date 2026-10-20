@@ -52,6 +52,7 @@
     </section>
 
     <section class="table-area" aria-label="Poker table">
+      <div class="table-layout">
         <div class="felt">
           <div class="seats-row">
             <div class="seat-panel">
@@ -117,6 +118,30 @@
             <p class="seat-chips">1,460 chips</p>
           </div>
         </div>
+        <aside class="table-side" aria-label="Table details">
+          <section class="side-block" aria-labelledby="info-title">
+            <h2 id="info-title">Table info</h2>
+            <dl class="info-list">
+              <div><dt>Game</dt><dd>Texas Hold'em</dd></div>
+              <div><dt>Blinds</dt><dd>20 / 40</dd></div>
+              <div><dt>Stakes</dt><dd class="stakes stakes--high"><span class="chips" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span>High</dd></div>
+              <div><dt>Seats</dt><dd class="seats"><span class="seat-dots" aria-hidden="true"><span class="seat seat--taken"></span><span class="seat seat--taken"></span><span class="seat seat--taken"></span><span class="seat seat--taken"></span><span class="seat"></span><span class="seat"></span></span>4 of 6 taken</dd></div>
+            </dl>
+          </section>
+          <section class="side-block" aria-labelledby="log-title">
+            <h2 id="log-title">This hand</h2>
+            <ol class="hand-log">
+            <li>New hand. Blinds are 20 and 40.</li>
+            <li>Dev folds before the flop.</li>
+            <li>Mara, Kofi and you each put in 120.</li>
+            <li>Flop: queen of hearts, jack of hearts, four of clubs.</li>
+            <li>Mara bets 80.</li>
+            <li>Kofi calls 80.</li>
+            </ol>
+          </section>
+          <a class="text-link" href="rules.html#holdem">Read the Hold'em rules</a>
+        </aside>
+      </div>
 
       <form class="moves-bar" aria-label="Your move">
         <fieldset class="move-group">
