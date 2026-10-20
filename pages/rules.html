@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rules · Poker Lounge</title>
+  <meta name="description" content="How to play every game in the Poker Lounge, from Texas Hold'em to Solitaire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Suit shapes, drawn once and reused with <use> -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="suit-spade" viewBox="0 0 100 100">
+      <path d="M50 4C30 26 6 40 6 60c0 14 11 22 23 22 9 0 16-4 19-10-1 10-6 18-14 24h32c-8-6-13-14-14-24 3 6 10 10 19 10 12 0 23-8 23-22C94 40 70 26 50 4z"/>
+    </symbol>
+    <symbol id="suit-heart" viewBox="0 0 100 100">
+      <path d="M50 92C22 70 6 54 6 34 6 19 17 8 30 8c9 0 16 5 20 13 4-8 11-13 20-13 13 0 24 11 24 26 0 20-16 36-44 58z"/>
+    </symbol>
+    <symbol id="suit-diamond" viewBox="0 0 100 100">
+      <path d="M50 3Q68 30 84 50 68 70 50 97 32 70 16 50 32 30 50 3z"/>
+    </symbol>
+    <symbol id="suit-club" viewBox="0 0 100 100">
+      <path d="M30 26a20 20 0 1 0 40 0a20 20 0 1 0-40 0zM7 57a20 20 0 1 0 40 0a20 20 0 1 0-40 0zM53 57a20 20 0 1 0 40 0a20 20 0 1 0-40 0zM36 50a14 14 0 1 0 28 0a14 14 0 1 0-28 0zM47 58c-1 16-5 29-13 38h32c-8-9-12-22-13-38z"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">Poker Lounge</a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="lobby.html">Lobby</a></li>
+        <li><a href="table.html">Table</a></li>
+        <li><a href="rules.html" aria-current="page">Rules</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="rules">
+    <section class="page-intro" aria-labelledby="page-title">
+      <h1 id="page-title" class="page-title">House Rules</h1>
+      <p class="page-lead">How every game in the lounge is played. Pick a game from the list to jump straight to it.</p>
+    </section>
+
+    <div class="rules-layout">
+      <nav class="rules-index" aria-label="Games">
+        <h2 class="index-title">Poker</h2>
+        <ul class="index-links">
+          <li><a href="#holdem">Texas Hold'em</a></li>
+          <li><a href="#omaha">Omaha</a></li>
+          <li><a href="#five-card-draw">Five Card Draw</a></li>
+        </ul>
+        <h2 class="index-title">Card games</h2>
+        <ul class="index-links">
+          <li><a href="#blackjack">Blackjack</a></li>
+          <li><a href="#go-fish">Go Fish</a></li>
+          <li><a href="#crazy-eights">Crazy Eights</a></li>
+          <li><a href="#hearts">Hearts</a></li>
+          <li><a href="#gin-rummy">Gin Rummy</a></li>
+          <li><a href="#solitaire">Solitaire</a></li>
+        </ul>
+      </nav>
+
+      <div class="rules-list">
+      <section class="rule" id="holdem" aria-labelledby="holdem-title">
+        <header class="rule-head">
+          <h2 id="holdem-title">Texas Hold'em</h2>
+          <p class="rule-meta">2–10 players · One 52-card deck · Intermediate</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Win the pot by holding the best five-card hand at the showdown, or by betting until everyone else folds.</p>
+            <h3>Setup</h3>
+            <p>The two players left of the dealer post the small and big blinds. Everyone is dealt two cards face down, called hole cards.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Pre-flop: betting starts with the player left of the big blind.</li>
+              <li>Flop: three shared cards are dealt face up, then another round of betting.</li>
+              <li>Turn: a fourth shared card, then betting.</li>
+              <li>River: a fifth and final shared card, then the last round of betting.</li>
+              <li>Showdown: players still in the hand reveal their cards.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>The best five-card hand made from any mix of your two hole cards and the five shared cards takes the pot.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Texas Hold'em table</a>
+      </section>
+
+      <section class="rule" id="omaha" aria-labelledby="omaha-title">
+        <header class="rule-head">
+          <h2 id="omaha-title">Omaha</h2>
+          <p class="rule-meta">2–9 players · One 52-card deck · Advanced</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Same as Hold'em: finish with the best five-card hand or be the last player betting.</p>
+            <h3>Setup</h3>
+            <p>Blinds are posted as in Hold'em, but every player is dealt four hole cards instead of two.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Pre-flop betting, starting left of the big blind.</li>
+              <li>Flop: three shared cards, then betting.</li>
+              <li>Turn: one more shared card, then betting.</li>
+              <li>River: the final shared card, then the last round of betting.</li>
+              <li>Showdown.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>Your hand must use exactly two of your hole cards and exactly three of the shared cards. That one rule is what makes Omaha harder to read than Hold'em.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Omaha table</a>
+      </section>
+
+      <section class="rule" id="five-card-draw" aria-labelledby="five-card-draw-title">
+        <header class="rule-head">
+          <h2 id="five-card-draw-title">Five Card Draw</h2>
+          <p class="rule-meta">2–6 players · One 52-card deck · Beginner</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Hold the best five-card poker hand after one chance to improve it.</p>
+            <h3>Setup</h3>
+            <p>Each player puts a small ante in the pot and is dealt five cards face down.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>First round of betting.</li>
+              <li>The draw: each player may throw away up to three cards and take new ones from the deck.</li>
+              <li>Second round of betting.</li>
+              <li>Showdown.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>The best hand at the showdown wins the pot. Nobody shares cards, so every hand is private.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Five Card Draw table</a>
+      </section>
+
+      <section class="rule" id="blackjack" aria-labelledby="blackjack-title">
+        <header class="rule-head">
+          <h2 id="blackjack-title">Blackjack</h2>
+          <p class="rule-meta">1–7 players against the dealer · One or more decks · Beginner</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Finish closer to 21 than the dealer without going over.</p>
+            <h3>Setup</h3>
+            <p>Number cards count their value, jacks, queens and kings count 10, and an ace counts 1 or 11. Every player and the dealer get two cards; one dealer card stays face down.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Place your bet before the deal.</li>
+              <li>Look at your two cards and the dealer's face-up card.</li>
+              <li>Hit to take another card, stand to keep your total, double down to double the bet for one last card, or split a pair into two hands.</li>
+              <li>Go over 21 and you bust and lose straight away.</li>
+              <li>The dealer reveals the hidden card and must keep hitting until reaching 17 or more.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>Beat the dealer's total and you win your bet. An ace with a ten-value card is a blackjack and pays 3 to 2. A tie is a push and your bet comes back.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Blackjack table</a>
+      </section>
+
+      <section class="rule" id="go-fish" aria-labelledby="go-fish-title">
+        <header class="rule-head">
+          <h2 id="go-fish-title">Go Fish</h2>
+          <p class="rule-meta">2–6 players · One 52-card deck · Beginner</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Collect the most books. A book is all four cards of one rank.</p>
+            <h3>Setup</h3>
+            <p>Deal seven cards each, or five each with four or more players. The rest go face down in the middle as the pond.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>On your turn, ask one player for a rank you already hold, such as “Any sevens?”</li>
+              <li>If they have any, they hand them all over and you ask again.</li>
+              <li>If not, they say “Go fish” and you draw from the pond. Draw the rank you asked for and you go again.</li>
+              <li>Lay down every complete book in front of you.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>The game ends when all thirteen books are made. Most books wins.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Go Fish table</a>
+      </section>
+
+      <section class="rule" id="crazy-eights" aria-labelledby="crazy-eights-title">
+        <header class="rule-head">
+          <h2 id="crazy-eights-title">Crazy Eights</h2>
+          <p class="rule-meta">2–7 players · One 52-card deck · Beginner</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Be the first player with no cards left.</p>
+            <h3>Setup</h3>
+            <p>Deal five cards each, or seven with two players. Turn the top card of the deck face up to start the discard pile.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Play a card that matches the top discard by suit or by rank.</li>
+              <li>Eights are wild: play one at any time and name the suit the next player must follow.</li>
+              <li>Can't play? Draw from the deck until you can. If the deck runs out, pass.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>The first player to empty their hand wins the round. Others can score penalty points for the cards they are still holding.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Crazy Eights table</a>
+      </section>
+
+      <section class="rule" id="hearts" aria-labelledby="hearts-title">
+        <header class="rule-head">
+          <h2 id="hearts-title">Hearts</h2>
+          <p class="rule-meta">4 players · One 52-card deck · Intermediate</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Finish with the lowest score. Every heart you take is 1 point and the queen of spades is 13.</p>
+            <h3>Setup</h3>
+            <p>Deal thirteen cards each. Before each hand, pass three cards: left, then right, then across, then no pass, and repeat.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Whoever holds the two of clubs leads it.</li>
+              <li>Follow the suit that was led if you can. If you can't, play anything.</li>
+              <li>The highest card of the led suit wins the trick and leads the next one.</li>
+              <li>Hearts can't be led until a heart has been played on another suit.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>Play ends when someone reaches 100 points, and the lowest score wins. Take every heart and the queen of spades in one hand and you shoot the moon: you score zero and everyone else takes 26.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Hearts table</a>
+      </section>
+
+      <section class="rule" id="gin-rummy" aria-labelledby="gin-rummy-title">
+        <header class="rule-head">
+          <h2 id="gin-rummy-title">Gin Rummy</h2>
+          <p class="rule-meta">2 players · One 52-card deck · Intermediate</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Turn your hand into melds: sets of three or four of a rank, or runs of three or more in one suit.</p>
+            <h3>Setup</h3>
+            <p>Deal ten cards each. Turn one card face up to start the discard pile and leave the rest face down as the stock.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Draw the top card of the stock or the discard pile.</li>
+              <li>Discard one card face up.</li>
+              <li>Knock when your unmatched cards add up to 10 or less. Face cards count 10 and aces count 1.</li>
+              <li>Go gin by knocking with no unmatched cards at all.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>The knocker scores the difference between both players' unmatched cards, plus a bonus for gin. If the other player matches or beats the knocker's count, they undercut and score instead. First to 100 wins.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Gin Rummy table</a>
+      </section>
+
+      <section class="rule" id="solitaire" aria-labelledby="solitaire-title">
+        <header class="rule-head">
+          <h2 id="solitaire-title">Solitaire</h2>
+          <p class="rule-meta">1 player · One 52-card deck · Beginner</p>
+        </header>
+        <div class="rule-body">
+          <div class="rule-col">
+            <h3>Goal</h3>
+            <p>Move every card onto four foundation piles, one per suit, built from ace up to king.</p>
+            <h3>Setup</h3>
+            <p>Deal seven columns from left to right, holding one to seven cards, with only the top card face up. The rest of the deck is the stock.</p>
+          </div>
+          <div class="rule-col">
+            <h3>How a round goes</h3>
+            <ol class="steps">
+              <li>Build down the columns in alternating colours, such as a red seven on a black eight.</li>
+              <li>Move aces to the foundations as they appear, then build each suit upward.</li>
+              <li>Only a king can fill an empty column.</li>
+              <li>When you're stuck, turn cards from the stock, one or three at a time.</li>
+            </ol>
+            <h3>Winning</h3>
+            <p>You win when all fifty-two cards are on the foundations.</p>
+          </div>
+        </div>
+        <a class="text-link" href="lobby.html">Find a Solitaire table</a>
+      </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>A card gaming hub built with HTML and CSS.</p>
+    <ul class="footer-links">
+      <li>
+        <a href="https://github.com/Rawrzilla-720s/Project_1" target="_blank" rel="noopener">
+          <svg class="footer-icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/suryaprakash-m7" target="_blank" rel="noopener" aria-label="Suryaprakash on LinkedIn">
+          <svg class="footer-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>Suryaprakash
+        </a>
+      </li>
+      <li>
+        <!-- TODO: add Victor's LinkedIn URL -->
+        <a href="#" target="_blank" rel="noopener" aria-label="Victor on LinkedIn">
+          <svg class="footer-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>Victor
+        </a>
+      </li>
+    </ul>
+  </footer>
+</body>
+</html>
