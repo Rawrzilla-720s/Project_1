@@ -164,6 +164,33 @@
         </div>
       </form>
     </section>
+
+    <section class="card-states" aria-labelledby="states-title">
+      <h2 id="states-title">Card states</h2>
+      <p class="page-lead">Every card at the table is in one of four states.</p>
+      <ul class="state-list">
+        <li class="state">
+          <div class="state-card" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
+          <h3>Face down</h3>
+          <p>Hidden from you. Opponents’ cards and the deck look like this.</p>
+        </li>
+        <li class="state">
+          <div class="state-card" aria-hidden="true"><span class="card card--playable"><span class="card-index">8<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-spade"/></svg></span></span></div>
+          <h3>Playable</h3>
+          <p>A card you can use right now gets a gold edge.</p>
+        </li>
+        <li class="state">
+          <div class="state-card" aria-hidden="true"><span class="card card--red card--selected"><span class="card-index">A<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-heart"/></svg></span></span></div>
+          <h3>Selected</h3>
+          <p>Picked cards lift out of the hand so you can see your choice.</p>
+        </li>
+        <li class="state">
+          <div class="state-card" aria-hidden="true"><span class="card card--disabled"><span class="card-index">3<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">3<svg><use href="#suit-club"/></svg></span></span></div>
+          <h3>Disabled</h3>
+          <p>Folded or out of play. Faded so it can’t be confused with live cards.</p>
+        </li>
+      </ul>
+    </section>
   </main>
 
   <footer class="site-footer">

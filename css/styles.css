@@ -1495,6 +1495,86 @@ svg {
   }
 }
 
+/* Card states guide */
+.card-states {
+  display: grid;
+  gap: 1rem;
+  padding: 0 var(--gutter) var(--section-gap);
+}
+
+.card-states h2 {
+  font-size: var(--text-heading);
+}
+
+.state-list {
+  --card-w: 76px;
+  --card-h: calc(var(--card-w) * 1.4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 560px) {
+  .state-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .state-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.state {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--felt-raised);
+}
+
+.state-card {
+  display: grid;
+  place-items: center;
+  height: calc(var(--card-h) + 2rem);
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  background: var(--felt-table);
+}
+
+.state h3 {
+  font-size: 1.375rem;
+}
+
+.state p {
+  color: var(--ivory-soft);
+}
+
+.card--playable {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.card--selected,
+.flip :checked + .flip-inner .card {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  translate: 0 -10px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.25), -8px 18px 28px rgb(0 0 0 / 0.4);
+}
+
+.flip :checked + .flip-inner .card {
+  translate: none;
+}
+
+.card--disabled {
+  opacity: 0.45;
+  filter: grayscale(1);
+}
+
 /* ---------- 11. Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .hero-title,
