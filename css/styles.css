@@ -179,13 +179,24 @@ svg {
 }
 
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--ivory);
+  text-decoration: none;
   text-underline-offset: 0.3em;
   transition: color var(--speed);
 }
 
 .footer-links a:hover {
   color: var(--gold);
+  text-decoration: underline;
+}
+
+.footer-icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
 }
 
 /* ---------- 5. Home: hero ---------- */
