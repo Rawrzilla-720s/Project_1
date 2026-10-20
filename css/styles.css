@@ -1296,6 +1296,140 @@ svg {
   }
 }
 
+/* Moves: radio buttons styled as table controls */
+.moves-bar {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.move-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  width: min(100%, 640px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.move-btn {
+  padding: 0.8em 1em;
+  border-radius: var(--radius-pill);
+  background: var(--felt-raised);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--speed), color var(--speed), translate var(--speed) var(--ease-out);
+}
+
+.move-btn:hover {
+  background: var(--felt-hover);
+  translate: 0 -2px;
+}
+
+.move-input:checked + .move-btn {
+  background: var(--gold);
+  color: var(--felt-deep);
+}
+
+.move-input:focus-visible + .move-btn {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.move-input:disabled + .move-btn {
+  opacity: 0.4;
+  cursor: not-allowed;
+  translate: none;
+}
+
+.move-status {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  max-width: 52ch;
+}
+
+.move-msg,
+.move-status .filter-reset,
+.turn.turn--done,
+.turn.turn--next {
+  display: none;
+}
+
+.move-msg--waiting {
+  display: block;
+}
+
+.table-page:has(.move-input:checked) .move-msg--waiting,
+.table-page:has(.move-input:checked) .turn--you {
+  display: none;
+}
+
+.table-page:has(#move-fold:checked) .move-msg--fold,
+.table-page:has(#move-call:checked) .move-msg--call,
+.table-page:has(#move-raise:checked) .move-msg--raise,
+.table-page:has(.move-input:checked) .move-status .filter-reset {
+  display: block;
+}
+
+.table-page:has(.move-input:checked) .turn--done,
+.table-page:has(#move-raise:checked) .turn--next {
+  display: grid;
+}
+
+/* Folding puts your cards out of play */
+.table-page:has(#move-fold:checked) .hole {
+  opacity: 0.4;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+/* Turn indicator: a badge and a shot clock that runs down */
+.turn {
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.turn-timer {
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gold);
+  transform-origin: left center;
+}
+
+@media (min-width: 640px) {
+  .move-group {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .turn .badge--gold {
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+
+  .turn-timer {
+    animation: shot-clock 20s linear forwards;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    scale: 1.08;
+  }
+}
+
+@keyframes shot-clock {
+  to {
+    scale: 0 1;
+  }
+}
+
 /* ---------- 11. Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .hero-title,

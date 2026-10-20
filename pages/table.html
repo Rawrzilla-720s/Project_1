@@ -59,6 +59,7 @@
               <p class="seat-name">Mara</p>
               <p class="seat-chips">1,100 chips</p>
               <p class="seat-note">Bet 80</p>
+              <p class="turn turn--next"><span class="badge badge--gold">Thinking</span><span class="turn-timer" aria-hidden="true"></span></p>
             </div>
             <div class="seat-panel seat-panel--folded">
               <p class="seat-name">Dev</p>
@@ -93,6 +94,8 @@
             <p class="pot"><span class="chips" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span>Pot 520</p>
           </div>
           <div class="you">
+            <p class="turn turn--you"><span class="badge badge--gold">Your turn</span><span class="turn-timer" aria-hidden="true"></span></p>
+            <p class="turn turn--done"><span class="badge">Waiting</span></p>
             <div class="hole">
                 <label class="flip">
                   <input class="sr-only" type="checkbox" aria-label="Peek at your first card">
@@ -114,6 +117,27 @@
             <p class="seat-chips">1,460 chips</p>
           </div>
         </div>
+
+      <form class="moves-bar" aria-label="Your move">
+        <fieldset class="move-group">
+          <legend class="sr-only">Choose your move</legend>
+            <input class="move-input sr-only" type="radio" name="move" id="move-fold" value="fold">
+            <label class="move-btn" for="move-fold">Fold</label>
+            <input class="move-input sr-only" type="radio" name="move" id="move-check" value="check" disabled>
+            <label class="move-btn" for="move-check">Check</label>
+            <input class="move-input sr-only" type="radio" name="move" id="move-call" value="call">
+            <label class="move-btn" for="move-call">Call 80</label>
+            <input class="move-input sr-only" type="radio" name="move" id="move-raise" value="raise">
+            <label class="move-btn" for="move-raise">Raise to 240</label>
+        </fieldset>
+        <div class="move-status" aria-live="polite">
+          <p class="move-msg move-msg--waiting">Mara bet 80 and Kofi called. You can fold, call 80 or raise. Checking isn't allowed once someone has bet.</p>
+          <p class="move-msg move-msg--fold">You folded. Your cards are out of play until the next hand.</p>
+          <p class="move-msg move-msg--call">You called 80. The pot is 600 and the turn card is next.</p>
+          <p class="move-msg move-msg--raise">You raised to 240. Mara is deciding whether to call.</p>
+          <button class="filter-reset" type="reset">Take it back</button>
+        </div>
+      </form>
     </section>
   </main>
 
