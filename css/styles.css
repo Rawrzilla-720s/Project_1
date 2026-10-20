@@ -512,14 +512,118 @@ svg {
   padding: 0 var(--gutter) var(--section-gap);
 }
 
+/* Filters: hidden radio buttons drive what the grid shows */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1.5rem 3rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.filter-group legend {
+  margin-bottom: 0.75rem;
+  padding: 0;
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.filter-option {
+  padding: 0.5em 1.1em;
+  border-radius: var(--radius-pill);
+  background: var(--felt-raised);
+  font-size: var(--text-small);
+  cursor: pointer;
+  transition: background-color var(--speed), color var(--speed);
+}
+
+.filter-option:hover {
+  background: var(--felt-hover);
+}
+
+.filter-input:checked + .filter-option {
+  background: var(--gold);
+  color: var(--felt-deep);
+  font-weight: 600;
+}
+
+.filter-input:focus-visible + .filter-option {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.filter-reset {
+  padding: 0.5em 0;
+  border: 0;
+  background: none;
+  color: var(--ivory);
+  font: inherit;
+  font-size: var(--text-small);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+}
+
+.filter-reset:hover {
+  color: var(--gold);
+}
+
+.lobby:has(#level-beginner:checked) .tile:not([data-level="beginner"]),
+.lobby:has(#level-intermediate:checked) .tile:not([data-level="intermediate"]),
+.lobby:has(#level-advanced:checked) .tile:not([data-level="advanced"]),
+.lobby:has(#players-solo:checked) .tile:not([data-players~="solo"]),
+.lobby:has(#players-two:checked) .tile:not([data-players~="two"]),
+.lobby:has(#players-group:checked) .tile:not([data-players~="group"]) {
+  display: none;
+}
+
+/* The count is written after the grid so the counter has seen every visible tile,
+   then moved above it visually */
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.results {
+  order: -1;
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.results::before {
+  content: "Tables open: " counter(tables);
+}
+
+.empty {
+  display: none;
+  padding: 2rem 0;
+  font-size: var(--text-lead);
+}
+
+/* No solo games above beginner level */
+.lobby:has(#players-solo:checked):has(#level-intermediate:checked, #level-advanced:checked) .empty {
+  display: block;
+}
+
 /* Grid of game tiles */
 .tile-grid {
+  counter-reset: tables;
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(1rem, 0.5rem + 1.5vw, 1.75rem);
 }
 
 .tile {
+  counter-increment: tables;
   display: flex;
   flex-direction: column;
   border: 2px solid transparent;
