@@ -172,11 +172,20 @@ svg {
   font-size: var(--text-small);
 }
 
-.footer-name {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 1rem + 4vw, 4rem);
-  line-height: 1;
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.footer-links a {
   color: var(--ivory);
+  text-underline-offset: 0.3em;
+  transition: color var(--speed);
+}
+
+.footer-links a:hover {
+  color: var(--gold);
 }
 
 /* ---------- 5. Home: hero ---------- */
