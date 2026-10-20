@@ -53,30 +53,32 @@
 
     <section class="table-area" aria-label="Poker table">
       <div class="table-layout">
-        <div class="felt">
-          <div class="seats-row">
-            <div class="seat-panel">
-              <div class="seat-cards" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
-              <p class="seat-name">Mara</p>
-              <p class="seat-chips">1,100 chips</p>
-              <p class="seat-note">Bet 80</p>
-              <p class="turn turn--next"><span class="badge badge--gold">Thinking</span><span class="turn-timer" aria-hidden="true"></span></p>
+        <div class="table-main">
+          <div class="poker-table">
+            <div class="felt">
+            <p class="felt-logo spot" aria-hidden="true">Poker Lounge</p>
+
+            <div class="player player--mara spot">
+              <span class="avatar" aria-hidden="true">M</span>
+              <p class="nameplate"><span class="player-name">Mara</span><span class="player-chips">1,100</span></p>
+              <div class="player-cards" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
             </div>
-            <div class="seat-panel seat-panel--folded">
-              <p class="seat-name">Dev</p>
-              <p class="seat-chips">640 chips</p>
-              <p class="seat-note">Folded</p>
+            <div class="player player--dev spot player--folded">
+              <span class="avatar" aria-hidden="true">D</span>
+              <p class="nameplate"><span class="player-name">Dev</span><span class="player-chips">Folded</span></p>
             </div>
-            <div class="seat-panel">
-              <div class="seat-cards" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
-              <p class="seat-name">Kofi</p>
-              <p class="seat-chips">1,930 chips</p>
-              <p class="seat-note">Called 80</p>
+            <div class="player player--kofi spot">
+              <span class="avatar" aria-hidden="true">K</span>
+              <p class="nameplate"><span class="player-name">Kofi</span><span class="player-chips">1,930</span></p>
+              <div class="player-cards" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
             </div>
-          </div>
-          <div class="board">
-            <div class="board-row">
-              <div class="pile">
+
+            <p class="bet bet--mara spot"><span class="chip-stack" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span><span class="sr-only">Mara bet </span>80</p>
+            <p class="bet bet--kofi spot"><span class="chip-stack" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span><span class="sr-only">Kofi called </span>80</p>
+            <span class="dealer-btn spot" role="img" aria-label="Dealer button, in front of Kofi">D</span>
+
+            <div class="table-board spot">
+              <div class="pile pile--deck">
                 <div class="deck-stack" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
                 <p class="pile-label">Deck</p>
               </div>
@@ -87,17 +89,15 @@
                 <span class="card-slot"></span>
                 <span class="card-slot"></span>
               </div>
-              <div class="pile">
+              <div class="pile pile--burn">
                 <div class="burn-pile" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
                 <p class="pile-label">Burned</p>
               </div>
             </div>
-            <p class="pot"><span class="chips" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span>Pot 520</p>
-          </div>
-          <div class="you">
-            <p class="turn turn--you"><span class="badge badge--gold">Your turn</span><span class="turn-timer" aria-hidden="true"></span></p>
-            <p class="turn turn--done"><span class="badge">Waiting</span></p>
-            <div class="hole">
+            <p class="pot spot"><span class="chip-stack" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span>Pot 520</p>
+
+            <div class="you spot">
+              <div class="hole">
                 <label class="flip">
                   <input class="sr-only" type="checkbox" aria-label="Peek at your first card">
                   <span class="flip-inner">
@@ -112,11 +112,16 @@
                     <span class="card-back"><svg><use href="#suit-diamond"/></svg></span>
                   </span>
                 </label>
+              </div>
+              <div class="you-bar">
+                <p class="nameplate nameplate--you"><span class="player-name">You</span><span class="player-chips">1,460</span></p>
+                <p class="turn turn--you"><span class="badge badge--gold">Your turn</span><span class="turn-timer" aria-hidden="true"></span></p>
+                <p class="turn turn--done"><span class="badge">Waiting</span></p>
+              </div>
             </div>
-            <p class="peek-hint">Hover or tap a card to peek</p>
-            <p class="seat-name">You</p>
-            <p class="seat-chips">1,460 chips</p>
+            </div>
           </div>
+          <p class="peek-hint">Hover or tap your cards to peek at them</p>
         </div>
         <aside class="table-side" aria-label="Table details">
           <section class="side-block" aria-labelledby="info-title">
