@@ -1,0 +1,429 @@
+/* ==========================================================
+   Poker Lounge: shared styles
+   1. Design tokens
+   2. Base
+   3. Utilities and shared components
+   4. Header and footer
+   5. Home: hero
+   6. Home: card fan
+   7. Motion
+   ========================================================== */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  /* Colour */
+  --felt: #0f3b2c;
+  --felt-deep: #0a2a1f;
+  --ivory: #f4efe4;
+  --ivory-soft: #c9d3c8;
+  --gold: #d9ad55;
+  --card-face: #fbfaf6;
+  --suit-black: #16161a;
+  --suit-red: #b3141f;
+
+  /* Type */
+  --font-display: "Limelight", "Didot", "Bodoni MT", serif;
+  --font-body: "Spectral", Georgia, serif;
+  --text-base: 1.125rem;
+  --text-small: 0.9375rem;
+  --text-lead: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --text-heading: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  --text-hero: clamp(3.5rem, 1rem + 11vw, 11.5rem);
+
+  /* Space */
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --section-gap: clamp(5rem, 3rem + 8vw, 10rem);
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --speed: 0.35s;
+
+  /* Cards */
+  --card-w: clamp(118px, 19vw, 220px);
+  --card-h: calc(var(--card-w) * 1.4);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--felt);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+svg {
+  fill: currentColor;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ---------- 3. Utilities and shared components ---------- */
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85em 1.8em;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+  color: var(--felt-deep);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  transition: translate var(--speed) var(--ease-out), background-color var(--speed);
+}
+
+.btn:hover {
+  background: var(--ivory);
+  translate: 0 -2px;
+}
+
+.btn:active {
+  translate: 0 1px;
+}
+
+/* ---------- 4. Header and footer ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding: 1.25rem var(--gutter);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.nav-links a {
+  font-size: var(--text-small);
+  text-decoration: none;
+  text-underline-offset: 0.3em;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 3rem var(--gutter);
+  background: var(--felt);
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1rem + 4vw, 4rem);
+  line-height: 1;
+  color: var(--ivory);
+}
+
+/* ---------- 5. Home: hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  min-height: calc(100svh - 5rem);
+  padding: 2rem var(--gutter) 6rem;
+}
+
+.hero-title {
+  font-size: var(--text-hero);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.hero-lead {
+  max-width: 34ch;
+  font-size: var(--text-lead);
+}
+
+/* ---------- 6. Home: card fan ---------- */
+.deck {
+  display: grid;
+  justify-items: center;
+  gap: clamp(3rem, 2rem + 4vw, 6rem);
+  padding: var(--section-gap) var(--gutter);
+  background: var(--felt-deep);
+  overflow: hidden;
+}
+
+.deck-intro {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.deck-intro h2 {
+  font-size: var(--text-heading);
+}
+
+.deck-intro p {
+  font-size: var(--text-lead);
+  color: var(--ivory-soft);
+}
+
+.fan {
+  --step: 0.58; /* how much of each card stays visible before the next one */
+  --spread: calc(var(--card-w) * 0.2);
+  display: flex;
+  justify-content: center;
+  padding-block: calc(var(--card-h) * 0.18) calc(var(--card-h) * 0.12);
+}
+
+.fan-slot {
+  rotate: var(--rot);
+  translate: 0 var(--drop);
+  transform-origin: 50% 100%;
+}
+
+.fan-slot + .fan-slot {
+  margin-left: calc(var(--card-w) * (var(--step) - 1));
+}
+
+/* Arc of the fan, matching a hand held loosely */
+.fan-slot:nth-child(1) { --rot: -16deg; --drop: 9%;  --gather: calc(var(--card-w) * 0.87); }
+.fan-slot:nth-child(2) { --rot: -5deg;  --drop: 0%;  --gather: calc(var(--card-w) * 0.29); }
+.fan-slot:nth-child(3) { --rot: 6deg;   --drop: 2%;  --gather: calc(var(--card-w) * -0.29); }
+.fan-slot:nth-child(4) { --rot: 17deg;  --drop: 10%; --gather: calc(var(--card-w) * -0.87); }
+
+/* Card face */
+.card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: calc(var(--card-w) * 0.07);
+  background: var(--card-face);
+  color: var(--suit-black);
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25), -6px 8px 18px rgb(0 0 0 / 0.28);
+  transition:
+    translate var(--speed) var(--ease-out),
+    box-shadow var(--speed) var(--ease-out);
+}
+
+.card--red {
+  color: var(--suit-red);
+}
+
+.card-index {
+  position: absolute;
+  top: calc(var(--card-w) * 0.06);
+  left: calc(var(--card-w) * 0.07);
+  display: grid;
+  justify-items: center;
+  font-family: var(--font-display);
+  font-size: calc(var(--card-w) * 0.17);
+  line-height: 1;
+}
+
+.card-index svg {
+  width: calc(var(--card-w) * 0.11);
+  height: calc(var(--card-w) * 0.11);
+  margin-top: calc(var(--card-w) * 0.02);
+}
+
+.card-index--flip {
+  top: auto;
+  left: auto;
+  bottom: calc(var(--card-w) * 0.06);
+  right: calc(var(--card-w) * 0.07);
+  rotate: 180deg;
+}
+
+.card-pip {
+  width: calc(var(--card-w) * 0.38);
+  height: calc(var(--card-w) * 0.38);
+}
+
+.card-pip--large {
+  width: calc(var(--card-w) * 0.56);
+  height: calc(var(--card-w) * 0.56);
+}
+
+/* Hover or focus: the chosen card rises and its neighbours slide away */
+.card:hover,
+.card:focus-visible {
+  translate: 0 -14%;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.25), -10px 24px 36px rgb(0 0 0 / 0.4);
+}
+
+.card:focus-visible {
+  outline-offset: 6px;
+}
+
+.fan-slot:has(.card:is(:hover, :focus-visible)) ~ .fan-slot .card {
+  translate: var(--spread) 0;
+}
+
+.fan-slot:has(~ .fan-slot .card:is(:hover, :focus-visible)) .card {
+  translate: calc(var(--spread) * -1) 0;
+}
+
+/* Labels under the fan, lit up to match the card in hand */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2.25rem;
+  color: var(--ivory-soft);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--speed);
+}
+
+.legend-suit {
+  width: 1.1em;
+  height: 1.1em;
+  color: var(--ivory);
+}
+
+.legend-suit--red {
+  color: #e5525c;
+}
+
+.deck:has(.fan-slot:nth-child(1) .card:is(:hover, :focus-visible)) .legend-item:nth-child(1),
+.deck:has(.fan-slot:nth-child(2) .card:is(:hover, :focus-visible)) .legend-item:nth-child(2),
+.deck:has(.fan-slot:nth-child(3) .card:is(:hover, :focus-visible)) .legend-item:nth-child(3),
+.deck:has(.fan-slot:nth-child(4) .card:is(:hover, :focus-visible)) .legend-item:nth-child(4) {
+  color: var(--gold);
+}
+
+/* Phones: tighter overlap so the whole hand fits */
+@media (max-width: 480px) {
+  :root {
+    --card-w: clamp(96px, 28vw, 118px);
+  }
+
+  .fan {
+    --step: 0.52;
+    --spread: calc(var(--card-w) * 0.12);
+  }
+
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0.75rem 2rem;
+  }
+}
+
+/* ---------- 7. Motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-title,
+  .hero-lead,
+  .hero .btn {
+    animation: rise 0.9s var(--ease-out) both;
+  }
+
+  .hero-lead {
+    animation-delay: 0.12s;
+  }
+
+  .hero .btn {
+    animation-delay: 0.24s;
+  }
+
+  /* The hand is dealt out from a single stack as it scrolls into view */
+  @supports (animation-timeline: view()) {
+    .fan-slot {
+      animation: deal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .btn,
+  .legend-item {
+    transition: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+}
+
+@keyframes deal {
+  from {
+    rotate: 0deg;
+    translate: var(--gather) 12%;
+  }
+}
