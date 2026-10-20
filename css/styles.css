@@ -18,6 +18,33 @@
    so try changing those before hard-coding a new value somewhere.
    ========================================================== */
 
+/* Fonts are self-hosted on purpose: codd's security policy only allows fonts
+   from the site itself, so a Google Fonts link gets blocked there.
+   Licenses (SIL OFL) are in the fonts/ folder. */
+@font-face {
+  font-family: "Limelight";
+  src: url("../fonts/limelight-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Spectral";
+  src: url("../fonts/spectral-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Spectral";
+  src: url("../fonts/spectral-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- 1. Design tokens ---------- */
 :root {
   /* Colors */
