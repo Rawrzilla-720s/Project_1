@@ -1079,7 +1079,7 @@ svg {
 .seats-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: end;
+  align-items: start;
   justify-content: space-around;
   gap: 1.25rem;
 }
@@ -1094,6 +1094,7 @@ svg {
 }
 
 .seat-panel--folded {
+  padding-top: calc(38px * 1.4 + 0.4rem);
   opacity: 0.5;
 }
 
