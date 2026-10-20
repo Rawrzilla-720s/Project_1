@@ -1205,6 +1205,97 @@ svg {
   }
 }
 
+/* Deck stack: thin offset edges make one card read as a thick pile */
+.pile {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+}
+
+.pile-label {
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.deck-stack .card-back {
+  box-shadow:
+    1px -1px 0 var(--card-face),
+    2px -2px 0 #b9b2a3,
+    3px -3px 0 var(--card-face),
+    4px -4px 0 #b9b2a3,
+    5px -5px 0 var(--card-face),
+    6px 8px 14px rgb(0 0 0 / 0.3);
+}
+
+.burn-pile {
+  display: grid;
+}
+
+.burn-pile > * {
+  grid-area: 1 / 1;
+}
+
+.burn-pile > :last-child {
+  rotate: 12deg;
+}
+
+/* Your hole cards start face down and flip over on hover, focus or tap */
+.flip {
+  position: relative;
+  display: block;
+  width: var(--card-w);
+  height: var(--card-h);
+  perspective: 800px;
+  cursor: pointer;
+  transition: translate var(--speed) var(--ease-out);
+}
+
+.flip-inner {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.flip-inner > * {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.flip-inner > .card-back {
+  transform: rotateY(180deg);
+}
+
+.flip:hover,
+.flip:has(:checked) {
+  translate: 0 -8px;
+}
+
+.flip:hover .flip-inner,
+.flip :checked + .flip-inner {
+  transform: rotateY(0deg);
+}
+
+.flip:has(:focus-visible) {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+  border-radius: 8px;
+}
+
+.peek-hint {
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip,
+  .flip-inner {
+    transition: none;
+  }
+}
+
 /* ---------- 11. Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .hero-title,

@@ -74,6 +74,10 @@
           </div>
           <div class="board">
             <div class="board-row">
+              <div class="pile">
+                <div class="deck-stack" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
+                <p class="pile-label">Deck</p>
+              </div>
               <div class="community" role="img" aria-label="Flop: queen of hearts, jack of hearts, four of clubs. Turn and river not dealt yet.">
                 <span class="card card--red"><span class="card-index">Q<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-heart"/></svg></span></span>
                 <span class="card card--red"><span class="card-index">J<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">J<svg><use href="#suit-heart"/></svg></span></span>
@@ -81,14 +85,31 @@
                 <span class="card-slot"></span>
                 <span class="card-slot"></span>
               </div>
+              <div class="pile">
+                <div class="burn-pile" aria-hidden="true"><span class="card-back"><svg><use href="#suit-diamond"/></svg></span><span class="card-back"><svg><use href="#suit-diamond"/></svg></span></div>
+                <p class="pile-label">Burned</p>
+              </div>
             </div>
             <p class="pot"><span class="chips" aria-hidden="true"><span class="chip"></span><span class="chip"></span><span class="chip"></span></span>Pot 520</p>
           </div>
           <div class="you">
             <div class="hole">
-                <span class="card card--red"><span class="card-index">A<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-heart"/></svg></span></span>
-                <span class="card card--red"><span class="card-index">K<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-heart"/></svg></span></span>
+                <label class="flip">
+                  <input class="sr-only" type="checkbox" aria-label="Peek at your first card">
+                  <span class="flip-inner">
+                    <span class="card card--red"><span class="card-index">A<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-heart"/></svg></span></span>
+                    <span class="card-back"><svg><use href="#suit-diamond"/></svg></span>
+                  </span>
+                </label>
+                <label class="flip">
+                  <input class="sr-only" type="checkbox" aria-label="Peek at your second card">
+                  <span class="flip-inner">
+                    <span class="card card--red"><span class="card-index">K<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-heart"/></svg></span></span>
+                    <span class="card-back"><svg><use href="#suit-diamond"/></svg></span>
+                  </span>
+                </label>
             </div>
+            <p class="peek-hint">Hover or tap a card to peek</p>
             <p class="seat-name">You</p>
             <p class="seat-chips">1,460 chips</p>
           </div>
