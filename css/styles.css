@@ -282,9 +282,6 @@ svg {
   color: var(--suit-black);
   text-decoration: none;
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.25), -6px 8px 18px rgb(0 0 0 / 0.28);
-  transition:
-    translate var(--speed) var(--ease-out),
-    box-shadow var(--speed) var(--ease-out);
 }
 
 .card--red {
@@ -327,13 +324,19 @@ svg {
 }
 
 /* Hover or focus: the chosen card rises and its neighbours slide away */
-.card:hover,
-.card:focus-visible {
+.fan .card {
+  transition:
+    translate var(--speed) var(--ease-out),
+    box-shadow var(--speed) var(--ease-out);
+}
+
+.fan .card:hover,
+.fan .card:focus-visible {
   translate: 0 -14%;
   box-shadow: 0 2px 4px rgb(0 0 0 / 0.25), -10px 24px 36px rgb(0 0 0 / 0.4);
 }
 
-.card:focus-visible {
+.fan .card:focus-visible {
   outline-offset: 6px;
 }
 
@@ -427,7 +430,7 @@ svg {
     scroll-behavior: auto;
   }
 
-  .card,
+  .fan .card,
   .btn,
   .legend-item {
     transition: none;
