@@ -1,29 +1,32 @@
 # Poker Lounge
 
-Poker Lounge is a poker-themed website created for our web development project using HTML and CSS. The goal is to provide a central place where visitors can explore poker strategies, learn the rules, and interact with card-themed pages.
+Poker Lounge is a website we created for our web development project using HTML and CSS. We wanted to make something based around poker that was easy to explore and looked good at the same time. The website gives visitors different sections where they can learn about poker, check out strategies, and explore the game.
 
 ## Website Sections
 
-- **Strategy:** A section dedicated to poker strategy and learning.
-- **Game Lobby:** A poker-themed lobby featuring game and player filters.
-- **Rules:** A section explaining poker rules and concepts.
-- **Deck Table:** A card table-themed page.
+**Strategy:** This page focuses on different poker strategies and tips.
+
+**Game Lobby:** This section has a poker lobby where visitors can explore different game options and use filters.
+
+**Rules:** This page helps visitors understand the rules of poker and how the game works.
+
+**Deck Table:** This section focuses on the card table experience.
 
 ## Design
 
-The website uses a dark green color scheme inspired by traditional poker tables. The homepage features four aces, each representing a different section of the website. HTML provides the page structure, while CSS controls the layout, typography, and visual presentation.
+For the design, we went with a dark green background because it reminded us of a real poker table. We also used playing cards on the homepage to make the navigation more interesting. Each ace represents a different section of the website. We used HTML to organize everything and CSS to style the pages and make the layout look better.
 
 ## Project Structure
 
-- `index.html` — Main homepage
-- `css/` — Website stylesheets
-- `pages/` — Additional website pages
-- `README.md` — Project documentation
+* `index.html` contains the homepage.
+* `css/` contains the styling for the website.
+* `pages/` contains the other pages.
+* `README.md` explains what our project is about.
 
 ## Development
 
-This project is being developed collaboratively using GitHub. Changes are tracked through commits so that team members can review progress and maintain the website together.
+We worked on this project together using GitHub to keep track of our changes. As we worked on different parts of the website, we used commits to save our progress and keep everything organized.
 
 ## Testing
 
-Before final submission, the team will review page navigation, layout, and usability across different screen sizes.
+Before submitting the project, we plan to check that the pages work correctly, the navigation makes sense, and the layout looks good on different screen sizes.
