@@ -757,7 +757,11 @@ svg {
   }
 
   .tile--featured .mini-hand {
-    --card-w: 96px;
+    --card-w: 116px;
+  }
+
+  .tile--featured .tile-actions {
+    margin-top: 0;
   }
 }
 
