@@ -495,7 +495,7 @@ svg {
   height: 16px;
   border-radius: 50%;
   background: var(--gold);
-  border: 3px dotted var(--felt-deep);
+  border: 3px dashed var(--ivory);
 }
 
 .stakes--free .chip,
@@ -709,8 +709,8 @@ svg {
 .mini-hand {
   --card-w: 64px;
   --card-h: calc(var(--card-w) * 1.4);
-  --angle: 7deg;
-  --offset: calc(var(--card-w) * 0.22);
+  --angle: 10deg;
+  --offset: calc(var(--card-w) * 0.32);
   position: relative;
   width: var(--card-w);
   height: var(--card-h);
@@ -728,8 +728,8 @@ svg {
 }
 
 .tile:is(:hover, :focus-within) .mini-hand {
-  --angle: 13deg;
-  --offset: calc(var(--card-w) * 0.36);
+  --angle: 16deg;
+  --offset: calc(var(--card-w) * 0.5);
 }
 
 @media (min-width: 640px) {
