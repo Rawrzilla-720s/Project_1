@@ -1119,15 +1119,6 @@ svg {
   translate: -50% -50%;
 }
 
-.felt-logo {
-  --x: 50%;
-  --y: 27%;
-  color: rgb(244 239 228 / 0.14);
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.4vw, 2rem);
-  white-space: nowrap;
-}
-
 /* Players sit on the rail: avatar, nameplate, then their cards on the felt */
 .player {
   display: grid;
@@ -1136,9 +1127,9 @@ svg {
   z-index: 1;
 }
 
-.player--mara { --x: 15%; --y: 18%; --avatar: #2f5a8a; }
-.player--dev  { --x: 50%; --y: 2%;  --avatar: #5e5e5e; }
-.player--kofi { --x: 85%; --y: 18%; --avatar: #8a6420; }
+.player--victor { --x: 15%; --y: 18%; --avatar: #2f5a8a; }
+.player--surya { --x: 50%; --y: 2%;  --avatar: #5e5e5e; }
+.player--sora { --x: 85%; --y: 18%; --avatar: #8a6420; }
 
 .player--folded {
   opacity: 0.5;
@@ -1195,8 +1186,8 @@ svg {
   font-weight: 600;
 }
 
-.bet--mara { --x: 29%; --y: 34%; }
-.bet--kofi { --x: 71%; --y: 34%; }
+.bet--victor { --x: 29%; --y: 34%; }
+.bet--sora { --x: 71%; --y: 34%; }
 
 .chip-stack {
   display: grid;
@@ -1486,8 +1477,8 @@ svg {
   display: grid;
 }
 
-/* After a raise the action moves to Mara: her avatar gets the turn ring */
-.table-page:has(#move-raise:checked) .player--mara .avatar {
+/* After a raise the action moves to Victor, whose avatar gets the turn ring */
+.table-page:has(#move-raise:checked) .player--victor .avatar {
   outline: 3px solid var(--gold);
   outline-offset: 3px;
 }
@@ -1522,7 +1513,7 @@ svg {
 
 @media (prefers-reduced-motion: no-preference) {
   .turn .badge--gold,
-  .table-page:has(#move-raise:checked) .player--mara .avatar {
+  .table-page:has(#move-raise:checked) .player--victor .avatar {
     animation: pulse 1.6s ease-in-out infinite;
   }
 
@@ -1622,13 +1613,9 @@ svg {
     inset: 12% 14%;
   }
 
-  .felt-logo {
-    --y: 24%;
-  }
-
-  .player--mara { --x: 16%; --y: 20%; }
-  .player--dev  { --x: 50%; --y: 3%; }
-  .player--kofi { --x: 84%; --y: 20%; }
+  .player--victor { --x: 16%; --y: 20%; }
+  .player--surya { --x: 50%; --y: 3%; }
+  .player--sora { --x: 84%; --y: 20%; }
 
   .avatar {
     width: 42px;
@@ -1646,8 +1633,8 @@ svg {
     display: none;
   }
 
-  .bet--mara { --x: 28%; --y: 37%; }
-  .bet--kofi { --x: 72%; --y: 37%; }
+  .bet--victor { --x: 28%; --y: 37%; }
+  .bet--sora { --x: 72%; --y: 37%; }
 
   .dealer-btn {
     --x: 88%;
