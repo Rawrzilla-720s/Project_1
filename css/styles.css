@@ -463,6 +463,48 @@ svg {
   color: var(--gold);
 }
 
+/* Seat status: one dot per seat, filled when taken */
+.seats,
+.stakes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.seat-dots,
+.chips {
+  display: flex;
+  gap: 4px;
+}
+
+.seat {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ivory-soft);
+}
+
+.seat--taken {
+  background: var(--ivory);
+  border-color: var(--ivory);
+}
+
+/* Table stakes: three chips, lit for low, mid or high */
+.chip {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px dotted var(--felt-deep);
+}
+
+.stakes--free .chip,
+.stakes--low .chip:nth-child(n + 2),
+.stakes--mid .chip:nth-child(3) {
+  background: transparent;
+  border: 2px solid rgb(201 211 200 / 0.45);
+}
+
 /* ---------- 8. Game lobby ---------- */
 .lobby-board {
   display: grid;
@@ -540,6 +582,14 @@ svg {
 .tile-stats dd {
   margin: 0;
   font-weight: 600;
+}
+
+.tile-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
 }
 
 .tile-actions {
