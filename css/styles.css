@@ -830,7 +830,30 @@ svg {
   padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
   border-radius: 18px;
   background: var(--felt-raised);
+  border: 2px solid transparent;
   scroll-margin-top: 1.5rem;
+  transition: border-color var(--speed);
+}
+
+/* Arriving from a "How to play" link: outline that game and mark it in the index */
+.rule:target {
+  border-color: var(--gold);
+}
+
+.rules:has(#hand-rankings:target) .index-links a[href="#hand-rankings"],
+.rules:has(#betting:target) .index-links a[href="#betting"],
+.rules:has(#holdem:target) .index-links a[href="#holdem"],
+.rules:has(#omaha:target) .index-links a[href="#omaha"],
+.rules:has(#five-card-draw:target) .index-links a[href="#five-card-draw"],
+.rules:has(#blackjack:target) .index-links a[href="#blackjack"],
+.rules:has(#go-fish:target) .index-links a[href="#go-fish"],
+.rules:has(#crazy-eights:target) .index-links a[href="#crazy-eights"],
+.rules:has(#hearts:target) .index-links a[href="#hearts"],
+.rules:has(#gin-rummy:target) .index-links a[href="#gin-rummy"],
+.rules:has(#solitaire:target) .index-links a[href="#solitaire"] {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
 }
 
 .rule-head {
@@ -1071,6 +1094,11 @@ svg {
   .tile:nth-child(7) { animation-delay: 0.3s; }
   .tile:nth-child(8) { animation-delay: 0.35s; }
   .tile:nth-child(9) { animation-delay: 0.4s; }
+
+  /* The linked game's panel flashes lighter, then settles */
+  .rule:target {
+    animation: spotlight 1.4s var(--ease-out);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1091,6 +1119,12 @@ svg {
   from {
     opacity: 0;
     translate: 0 24px;
+  }
+}
+
+@keyframes spotlight {
+  from {
+    background-color: var(--felt-hover);
   }
 }
 
