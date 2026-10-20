@@ -136,6 +136,15 @@ svg {
   translate: 0 1px;
 }
 
+/* A button for something that isn't available yet: flat, muted, no hover */
+.btn--disabled,
+.btn--disabled:hover {
+  background: var(--felt-deep);
+  color: var(--ivory-soft);
+  cursor: not-allowed;
+  translate: none;
+}
+
 /* ---------- 4. Header and footer ---------- */
 .site-header {
   display: flex;
