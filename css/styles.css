@@ -1,5 +1,6 @@
 /* ==========================================================
-   Poker Lounge: shared styles
+   Poker Lounge - main stylesheet, shared by every page
+
    1. Design tokens
    2. Base
    3. Utilities and shared components
@@ -12,11 +13,14 @@
    10. Deck table
    11. Strategy
    12. Motion
+
+   Colors, fonts and spacing all come from the variables in :root,
+   so try changing those before hard-coding a new value somewhere.
    ========================================================== */
 
 /* ---------- 1. Design tokens ---------- */
 :root {
-  /* Colour */
+  /* Colors */
   --felt: #0f3b2c;
   --felt-deep: #0a2a1f;
   --felt-raised: #164a37;
@@ -52,7 +56,7 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --speed: 0.35s;
 
-  /* Cards */
+  /* Cards - every card on the site scales off --card-w */
   --card-w: clamp(118px, 19vw, 220px);
   --card-h: calc(var(--card-w) * 1.4);
 }
@@ -140,7 +144,7 @@ svg {
   translate: 0 1px;
 }
 
-/* A button for something that isn't available yet: flat, muted, no hover */
+/* Disabled look for the lobby tables that aren't open yet */
 .btn--disabled,
 .btn--disabled:hover {
   background: var(--felt-deep);
@@ -269,7 +273,7 @@ svg {
 }
 
 .fan {
-  --step: 0.58; /* how much of each card stays visible before the next one */
+  --step: 0.58; /* how much of each card shows before the next one overlaps it */
   --spread: calc(var(--card-w) * 0.2);
   display: flex;
   justify-content: center;
@@ -286,13 +290,13 @@ svg {
   margin-left: calc(var(--card-w) * (var(--step) - 1));
 }
 
-/* Arc of the fan, matching a hand held loosely */
+/* Each slot gets its own tilt and drop so the four aces sit in an arc */
 .fan-slot:nth-child(1) { --rot: -16deg; --drop: 9%;  --gather: calc(var(--card-w) * 0.87); }
 .fan-slot:nth-child(2) { --rot: -5deg;  --drop: 0%;  --gather: calc(var(--card-w) * 0.29); }
 .fan-slot:nth-child(3) { --rot: 6deg;   --drop: 2%;  --gather: calc(var(--card-w) * -0.29); }
 .fan-slot:nth-child(4) { --rot: 17deg;  --drop: 10%; --gather: calc(var(--card-w) * -0.87); }
 
-/* Card face */
+/* Card face - reused on the lobby, rules, table and strategy pages too */
 .card {
   position: relative;
   display: grid;
@@ -346,7 +350,8 @@ svg {
   height: calc(var(--card-w) * 0.56);
 }
 
-/* Hover or focus: the chosen card rises and its neighbours slide away */
+/* Hovered card lifts and its neighbors slide away. The :has() rule is what
+   lets a card push the cards *before* it, since ~ only reaches later siblings. */
 .fan .card {
   transition:
     translate var(--speed) var(--ease-out),
@@ -371,7 +376,7 @@ svg {
   translate: calc(var(--spread) * -1) 0;
 }
 
-/* Labels under the fan, lit up to match the card in hand */
+/* Legend under the fan - the matching label turns gold while its card is hovered */
 .legend {
   display: flex;
   flex-wrap: wrap;
@@ -391,7 +396,7 @@ svg {
   width: 1.1em;
   height: 1.1em;
   color: var(--suit-black);
-  /* A light edge keeps black suits visible on the dark felt */
+  /* thin light outline so black suits don't vanish on the dark green */
   stroke: var(--ivory-soft);
   stroke-width: 6;
   paint-order: stroke;
@@ -409,7 +414,7 @@ svg {
   color: var(--gold);
 }
 
-/* Phones: tighter overlap so the whole hand fits */
+/* Phones: smaller cards and more overlap so all four fit */
 @media (max-width: 480px) {
   :root {
     --card-w: clamp(96px, 28vw, 118px);
@@ -487,7 +492,7 @@ svg {
   color: var(--gold);
 }
 
-/* Seat status: one dot per seat, filled when taken */
+/* Seat dots: filled = taken, outlined = open */
 .seats,
 .stakes {
   display: flex;
@@ -513,7 +518,7 @@ svg {
   border-color: var(--ivory);
 }
 
-/* Table stakes: three chips, lit for low, mid or high */
+/* Stakes are always 3 chips - the stakes--* modifier decides how many are lit */
 .chip {
   width: 16px;
   height: 16px;
@@ -536,7 +541,8 @@ svg {
   padding: 0 var(--gutter) var(--section-gap);
 }
 
-/* Filters: hidden radio buttons drive what the grid shows */
+/* Filters are visually hidden radios with styled labels. The actual hiding
+   happens in the .lobby:has(#id:checked) rules a bit further down. */
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -609,8 +615,9 @@ svg {
   display: none;
 }
 
-/* The count is written after the grid so the counter has seen every visible tile,
-   then moved above it visually */
+/* .results comes AFTER the grid in the HTML on purpose: a CSS counter only
+   knows about elements before it, so we count the visible tiles first and then
+   use order: -1 to show the total above the grid. */
 .board {
   display: flex;
   flex-direction: column;
@@ -633,12 +640,12 @@ svg {
   font-size: var(--text-lead);
 }
 
-/* No solo games above beginner level */
+/* No solo game is above beginner, so these combos show the empty message */
 .lobby:has(#players-solo:checked):has(#level-intermediate:checked, #level-advanced:checked) .empty {
   display: block;
 }
 
-/* Grid of game tiles */
+/* Tile grid: 1 column on phones, 2 from 640px, 3 from 1024px */
 .tile-grid {
   counter-reset: tables;
   display: grid;
@@ -729,7 +736,8 @@ svg {
   padding-top: 0.5rem;
 }
 
-/* Mini hand of cards on each tile; fans wider when the tile is picked up */
+/* Mini hand on each tile. --i (card index) and --mid (middle of the hand) are
+   set inline in the HTML; hovering the tile bumps --angle/--offset to fan it out. */
 .mini-hand {
   --card-w: 64px;
   --card-h: calc(var(--card-w) * 1.4);
@@ -802,7 +810,7 @@ svg {
   padding: 0 var(--gutter) var(--section-gap);
 }
 
-/* Game index: chips on phones, a sticky list beside the rules on wide screens */
+/* Game index: wraps as chips on phones, becomes a sticky sidebar at 900px+ */
 .rules-index {
   display: grid;
   gap: 0.5rem;
@@ -858,7 +866,8 @@ svg {
   transition: border-color var(--speed);
 }
 
-/* Arriving from a "How to play" link: outline that game and mark it in the index */
+/* Coming from a lobby "How to play" link (rules.html#blackjack etc.), :target
+   outlines that game and highlights its link in the index */
 .rule:target {
   border-color: var(--gold);
 }
@@ -918,7 +927,7 @@ svg {
   justify-self: start;
 }
 
-/* Numbered steps, with the number set in the display face */
+/* Step numbers come from a counter so we can style them; the list stays a real <ol> */
 .steps {
   display: grid;
   gap: 0.6rem;
@@ -940,7 +949,7 @@ svg {
   font-family: var(--font-display);
 }
 
-/* Poker hand rankings, best first */
+/* Hand rankings - order matters here, best hand first */
 .hands {
   display: grid;
   gap: 0.75rem;
@@ -1005,7 +1014,7 @@ svg {
   margin-top: calc(var(--card-w) * 0.3);
 }
 
-/* Betting moves glossary */
+/* Betting moves (a <dl>, term + definition) */
 .moves {
   display: grid;
   gap: 0.75rem;
@@ -1089,7 +1098,7 @@ svg {
   min-width: 0;
 }
 
-/* The table: an oval of felt inside a padded rail and a wood trim */
+/* Two layers: .poker-table is the padded rail, .felt is the playing surface */
 .poker-table {
   --card-w: 58px;
   --card-h: calc(var(--card-w) * 1.4);
@@ -1108,7 +1117,7 @@ svg {
   background: var(--felt-table);
 }
 
-/* A lighter oval where the cards and bets go, like the line printed on club tables */
+/* lighter inner oval for the betting area - flat color, no gradient */
 .felt::before {
   content: "";
   position: absolute;
@@ -1117,7 +1126,8 @@ svg {
   background: var(--felt-ring);
 }
 
-/* Everything on the table is placed by an x/y position on the felt */
+/* Anything with .spot is placed on the felt by its --x/--y, and the translate
+   centers it on that point. Phone coordinates are in the media query below. */
 .spot {
   position: absolute;
   left: var(--x);
@@ -1125,7 +1135,7 @@ svg {
   translate: -50% -50%;
 }
 
-/* Players sit on the rail: avatar, nameplate, then their cards on the felt */
+/* Players: avatar, nameplate, then their face-down cards. Position + avatar color are per player. */
 .player {
   display: grid;
   justify-items: center;
@@ -1184,7 +1194,7 @@ svg {
   rotate: 10deg;
 }
 
-/* Bets pushed onto the felt, and the dealer button */
+/* Bets in front of each player, plus the dealer button */
 .bet {
   display: flex;
   align-items: center;
@@ -1226,7 +1236,7 @@ svg {
   box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
 }
 
-/* The shared cards in the middle, with the deck and burned cards either side */
+/* Middle of the table: deck, the five community card spots, burn pile */
 .table-board {
   --x: 50%;
   --y: 52%;
@@ -1272,7 +1282,7 @@ svg {
   font-size: 0.8125rem;
 }
 
-/* Deck stack: thin offset edges make one card read as a thick pile */
+/* Stacked box-shadows fake the edges of a full deck */
 .deck-stack .card-back {
   box-shadow:
     1px -1px 0 var(--card-face),
@@ -1295,7 +1305,7 @@ svg {
   rotate: 12deg;
 }
 
-/* Your seat: cards rest on the bottom edge of the table, nameplate on the rail */
+/* Your seat is centered on the bottom edge (--y: 100%) so the cards overlap the rail */
 .you {
   --x: 50%;
   --y: 100%;
@@ -1333,7 +1343,7 @@ svg {
   text-align: center;
 }
 
-/* Face-down card, used for opponents, the deck and the card states guide */
+/* Card back - opponents, deck, burn pile and the states guide all use this */
 .card-back {
   display: grid;
   place-items: center;
@@ -1350,7 +1360,8 @@ svg {
   height: calc(var(--card-w) * 0.38);
 }
 
-/* Your hole cards start face down and flip over on hover, focus or tap */
+/* Hole cards: :hover flips them on desktop, and the hidden checkbox keeps them
+   flipped after a tap since phones don't really have hover. */
 .flip {
   position: relative;
   display: block;
@@ -1402,7 +1413,9 @@ svg {
   }
 }
 
-/* Moves: radio buttons styled as table controls */
+/* Move buttons are radios, so only one move can be picked at a time. Everything
+   that reacts to the move (messages, badges, folded cards) hangs off
+   .table-page:has(#move-*:checked) below. */
 .moves-bar {
   display: grid;
   gap: 1rem;
@@ -1483,20 +1496,20 @@ svg {
   display: grid;
 }
 
-/* After a raise the action moves to Victor, whose avatar gets the turn ring */
+/* A raise passes the action to Victor, so the turn ring moves to his avatar */
 .table-page:has(#move-raise:checked) .player--victor .avatar {
   outline: 3px solid var(--gold);
   outline-offset: 3px;
 }
 
-/* Folding puts your cards out of play */
+/* Fold grays out your hand and stops it from flipping */
 .table-page:has(#move-fold:checked) .hole {
   opacity: 0.4;
   filter: grayscale(1);
   pointer-events: none;
 }
 
-/* Turn indicator: a badge and a shot clock that runs down */
+/* Turn indicator: pulsing badge + a bar that shrinks over 20s like a shot clock */
 .turn {
   display: grid;
   justify-items: center;
@@ -1540,7 +1553,7 @@ svg {
   }
 }
 
-/* Side panel: table details and what has happened so far */
+/* Side panel (table info + hand log) - right of the table at 1100px+, below it otherwise */
 .table-layout {
   display: grid;
   gap: 1.5rem;
@@ -1604,7 +1617,8 @@ svg {
   }
 }
 
-/* Phones: the table stands upright, opponents round the top, you at the bottom */
+/* Phones: the table turns vertical, so every .spot gets new coordinates.
+   Opponent cards and the deck/burn piles are hidden to keep it readable. */
 @media (max-width: 639px) {
   .poker-table {
     --card-w: 40px;
@@ -1671,6 +1685,8 @@ svg {
   }
 }
 
+/* Below 1100px .table-layout steps out of the way (display: contents) so the
+   move buttons can sit between the table and the side panel */
 @media (max-width: 1099px) {
   .table-layout {
     display: contents;
@@ -1681,7 +1697,7 @@ svg {
   }
 }
 
-/* Card states guide */
+/* Card states guide at the bottom of the table page */
 .card-states {
   display: grid;
   gap: 1rem;
@@ -1783,7 +1799,7 @@ svg {
   font-size: var(--text-lead);
 }
 
-/* Tip cards: question on the front, the tip on the back */
+/* Tip cards - same flip idea as the hole cards: checkbox for tap, :hover for desktop */
 .tip-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
@@ -1992,7 +2008,8 @@ svg {
     animation-delay: 0.24s;
   }
 
-  /* The hand is dealt out from a single stack as it scrolls into view */
+  /* Homepage deal-in. Only runs where scroll-driven animations are supported;
+     other browsers just show the fan in place. */
   @supports (animation-timeline: view()) {
     .fan-slot {
       animation: deal linear both;
@@ -2001,7 +2018,8 @@ svg {
     }
   }
 
-  /* Tiles settle in on load and again whenever a filter brings them back */
+  /* Tiles fade up on load. A tile coming back from display: none restarts its
+     animation, so this also plays when a filter brings tiles back. */
   .tile {
     animation: rise 0.5s var(--ease-out) backwards;
   }
@@ -2015,12 +2033,13 @@ svg {
   .tile:nth-child(8) { animation-delay: 0.35s; }
   .tile:nth-child(9) { animation-delay: 0.4s; }
 
-  /* The linked game's panel flashes lighter, then settles */
+  /* quick flash on the rules section you jumped to */
   .rule:target {
     animation: spotlight 1.4s var(--ease-out);
   }
 }
 
+/* Reduced motion: drop smooth scrolling and transitions, content stays the same */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
