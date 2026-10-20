@@ -53,6 +53,11 @@
 
     <div class="rules-layout">
       <nav class="rules-index" aria-label="Games">
+        <h2 class="index-title">Poker basics</h2>
+        <ul class="index-links">
+          <li><a href="#hand-rankings">Hand rankings</a></li>
+          <li><a href="#betting">Betting moves</a></li>
+        </ul>
         <h2 class="index-title">Poker</h2>
         <ul class="index-links">
           <li><a href="#holdem">Texas Hold'em</a></li>
@@ -71,6 +76,160 @@
       </nav>
 
       <div class="rules-list">
+      <section class="rule" id="hand-rankings" aria-labelledby="hand-rankings-title">
+        <header class="rule-head">
+          <h2 id="hand-rankings-title">Poker hand rankings</h2>
+          <p class="rule-meta">Used in Texas Hold'em, Omaha and Five Card Draw · Best hand first</p>
+        </header>
+        <ol class="hands">
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Royal flush</h3>
+              <p>Ace, king, queen, jack and ten, all one suit.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card"><span class="card-index">A<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card"><span class="card-index">K<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card"><span class="card-index">Q<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card"><span class="card-index">J<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">J<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card"><span class="card-index">10<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">10<svg><use href="#suit-spade"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Straight flush</h3>
+              <p>Five cards in a row, all one suit.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card card--red"><span class="card-index">9<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">9<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">8<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">7<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">7<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">6<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">6<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">5<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">5<svg><use href="#suit-heart"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Four of a kind</h3>
+              <p>All four cards of one rank.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card"><span class="card-index">Q<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">Q<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">Q<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card"><span class="card-index">Q<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">4<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">4<svg><use href="#suit-diamond"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Full house</h3>
+              <p>Three of a kind with a pair.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card"><span class="card-index">K<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">K<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">K<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card"><span class="card-index">7<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">7<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">7<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">7<svg><use href="#suit-heart"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Flush</h3>
+              <p>Any five cards of one suit.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card card--red"><span class="card-index">A<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">J<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">J<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">8<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">5<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">5<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">2<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">2<svg><use href="#suit-diamond"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Straight</h3>
+              <p>Five cards in a row, mixed suits.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card"><span class="card-index">10<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">10<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">9<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">9<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card"><span class="card-index">8<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">7<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">7<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card"><span class="card-index">6<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">6<svg><use href="#suit-club"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Three of a kind</h3>
+              <p>Three cards of one rank.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card"><span class="card-index">8<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">8<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">8<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">8<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card"><span class="card-index">K<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card"><span class="card-index">3<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">3<svg><use href="#suit-spade"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>Two pair</h3>
+              <p>Two different pairs.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card card--red"><span class="card-index">J<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">J<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card"><span class="card-index">J<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">J<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card"><span class="card-index">5<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">5<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">5<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">5<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card"><span class="card-index">A<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-club"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>One pair</h3>
+              <p>Two cards of one rank.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card card--red"><span class="card-index">10<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">10<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card"><span class="card-index">10<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">10<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">K<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">K<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card"><span class="card-index">7<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">7<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">4<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">4<svg><use href="#suit-heart"/></svg></span></span>
+            </div>
+          </li>
+          <li class="hand">
+            <div class="hand-text">
+              <h3>High card</h3>
+              <p>None of the above. Your highest card plays.</p>
+            </div>
+            <div class="hand-cards" aria-hidden="true">
+                <span class="card"><span class="card-index">A<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">A<svg><use href="#suit-club"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">Q<svg><use href="#suit-diamond"/></svg></span><svg class="card-pip"><use href="#suit-diamond"/></svg><span class="card-index card-index--flip">Q<svg><use href="#suit-diamond"/></svg></span></span>
+                <span class="card"><span class="card-index">9<svg><use href="#suit-spade"/></svg></span><svg class="card-pip"><use href="#suit-spade"/></svg><span class="card-index card-index--flip">9<svg><use href="#suit-spade"/></svg></span></span>
+                <span class="card card--red"><span class="card-index">6<svg><use href="#suit-heart"/></svg></span><svg class="card-pip"><use href="#suit-heart"/></svg><span class="card-index card-index--flip">6<svg><use href="#suit-heart"/></svg></span></span>
+                <span class="card"><span class="card-index">3<svg><use href="#suit-club"/></svg></span><svg class="card-pip"><use href="#suit-club"/></svg><span class="card-index card-index--flip">3<svg><use href="#suit-club"/></svg></span></span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="rule" id="betting" aria-labelledby="betting-title">
+        <header class="rule-head">
+          <h2 id="betting-title">Betting moves</h2>
+          <p class="rule-meta">What you can do when the action reaches you</p>
+        </header>
+        <dl class="moves">
+          <div class="move"><dt>Check</dt><dd>Pass the action without betting. Only possible when nobody has bet yet this round.</dd></div>
+          <div class="move"><dt>Bet</dt><dd>Put chips in when nobody else has this round.</dd></div>
+          <div class="move"><dt>Call</dt><dd>Match the current bet to stay in the hand.</dd></div>
+          <div class="move"><dt>Raise</dt><dd>Match the current bet and add more on top.</dd></div>
+          <div class="move"><dt>Fold</dt><dd>Give up your cards and anything you have already put in.</dd></div>
+          <div class="move"><dt>All in</dt><dd>Bet every chip you have left.</dd></div>
+        </dl>
+      </section>
+
       <section class="rule" id="holdem" aria-labelledby="holdem-title">
         <header class="rule-head">
           <h2 id="holdem-title">Texas Hold'em</h2>
@@ -93,7 +252,7 @@
               <li>Showdown: players still in the hand reveal their cards.</li>
             </ol>
             <h3>Winning</h3>
-            <p>The best five-card hand made from any mix of your two hole cards and the five shared cards takes the pot.</p>
+            <p>The best five-card hand made from any mix of your two hole cards and the five shared cards takes the pot. <a class="text-link" href="#hand-rankings">See which hands win</a></p>
           </div>
         </div>
         <a class="text-link" href="lobby.html">Find a Texas Hold'em table</a>
@@ -121,7 +280,7 @@
               <li>Showdown.</li>
             </ol>
             <h3>Winning</h3>
-            <p>Your hand must use exactly two of your hole cards and exactly three of the shared cards. That one rule is what makes Omaha harder to read than Hold'em.</p>
+            <p>Your hand must use exactly two of your hole cards and exactly three of the shared cards. That one rule is what makes Omaha harder to read than Hold'em. <a class="text-link" href="#hand-rankings">See which hands win</a></p>
           </div>
         </div>
         <a class="text-link" href="lobby.html">Find a Omaha table</a>
@@ -148,7 +307,7 @@
               <li>Showdown.</li>
             </ol>
             <h3>Winning</h3>
-            <p>The best hand at the showdown wins the pot. Nobody shares cards, so every hand is private.</p>
+            <p>The best hand at the showdown wins the pot. Nobody shares cards, so every hand is private. <a class="text-link" href="#hand-rankings">See which hands win</a></p>
           </div>
         </div>
         <a class="text-link" href="lobby.html">Find a Five Card Draw table</a>

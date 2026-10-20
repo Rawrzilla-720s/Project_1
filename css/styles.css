@@ -894,6 +894,108 @@ svg {
   font-family: var(--font-display);
 }
 
+/* Poker hand rankings, best first */
+.hands {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: hand;
+}
+
+.hand {
+  display: grid;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--felt-deep);
+  counter-increment: hand;
+}
+
+.hand-text h3 {
+  font-size: 1.375rem;
+}
+
+.hand-text h3::before {
+  content: counter(hand);
+  margin-right: 0.6em;
+  color: var(--gold);
+}
+
+.hand-text p {
+  color: var(--ivory-soft);
+  font-size: var(--text-small);
+}
+
+.hand-cards {
+  --card-w: 46px;
+  --card-h: calc(var(--card-w) * 1.4);
+  display: flex;
+  gap: 6px;
+}
+
+.hand-cards .card {
+  box-shadow: none;
+}
+
+.hand-cards .card-index {
+  font-size: calc(var(--card-w) * 0.26);
+}
+
+.hand-cards .card-index svg {
+  width: calc(var(--card-w) * 0.17);
+  height: calc(var(--card-w) * 0.17);
+}
+
+.hand-cards .card-index--flip {
+  display: none;
+}
+
+.hand-cards .card-pip {
+  width: calc(var(--card-w) * 0.36);
+  height: calc(var(--card-w) * 0.36);
+  margin-top: calc(var(--card-w) * 0.3);
+}
+
+/* Betting moves glossary */
+.moves {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.move {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--felt-deep);
+}
+
+.move dt {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.move dd {
+  margin: 0.25rem 0 0;
+  color: var(--ivory-soft);
+}
+
+.rule-col .text-link {
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .hand {
+    grid-template-columns: 1fr auto;
+  }
+
+  .moves {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (min-width: 900px) {
   .rules-layout {
     grid-template-columns: 210px 1fr;
