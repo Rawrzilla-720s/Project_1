@@ -1496,6 +1496,45 @@ svg {
   }
 }
 
+/* Phones: three seats across, shared cards on top with the piles below,
+   and the move buttons straight after the table */
+@media (max-width: 639px) {
+  .felt {
+    --card-w: 46px;
+  }
+
+  .seats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .seat-panel {
+    min-width: 0;
+  }
+
+  .board-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .community {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+
+@media (max-width: 1099px) {
+  .table-layout {
+    display: contents;
+  }
+
+  .table-side {
+    order: 1;
+  }
+}
+
 /* Card states guide */
 .card-states {
   display: grid;
